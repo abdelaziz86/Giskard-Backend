@@ -2,6 +2,7 @@ package com.example.newproject.entities;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "reservations")
@@ -11,16 +12,16 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="start")
-    private LocalDateTime start ;
+    @Column(name = "start")
+    private LocalDateTime start;
 
-    @Column(name="end")
-    private LocalDateTime end ;
+    @Column(name = "end")
+    private LocalDateTime end;
 
-    @Column(name="title")
-    private String title ;
+    @Column(name = "title")
+    private String title;
 
-    @Column(name="email")
-    private String email ;
+    @Column(name = "email")
+    private String email;
 
 }

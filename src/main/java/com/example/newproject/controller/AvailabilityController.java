@@ -1,12 +1,14 @@
 package com.example.newproject.controller;
 
 import com.example.newproject.entities.Availability;
+import com.example.newproject.repositories.IAvailabilityRepository;
 import com.example.newproject.services.IServiceAvailability;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -23,6 +25,7 @@ public class AvailabilityController {
     @PostMapping
     public ResponseEntity<Availability> createAvailability(@RequestBody Availability availability) {
         Availability createdAvailability = availabilityService.createAvailability(availability);
+        System.out.println("Start : "+ availability.getStart());
         return new ResponseEntity<>(createdAvailability, HttpStatus.CREATED);
     }
 
