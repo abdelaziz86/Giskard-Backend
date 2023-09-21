@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/reservations")
 public class ReservationController {
@@ -28,5 +30,12 @@ public class ReservationController {
     public ResponseEntity<String> deleteReservation(@PathVariable Integer id, @RequestParam String email) {
         reservationService.deleteReservation(id, email);
         return ResponseEntity.ok("Reservation deleted successfully");
+    }
+
+
+    @GetMapping
+    public ResponseEntity<List<Reservation>> getAllReservations() {
+        List<Reservation> reservations = reservationService.listReservations();
+        return new ResponseEntity<>(reservations, HttpStatus.OK);
     }
 }
