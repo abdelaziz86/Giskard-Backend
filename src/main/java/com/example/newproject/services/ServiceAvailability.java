@@ -3,9 +3,11 @@ package com.example.newproject.services;
 import com.example.newproject.entities.Availability;
 import com.example.newproject.repositories.IAvailabilityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ServiceAvailability implements IServiceAvailability {
     // Inject the AvailabilityRepository (assuming you have one)
     private final IAvailabilityRepository availabilityRepository;
