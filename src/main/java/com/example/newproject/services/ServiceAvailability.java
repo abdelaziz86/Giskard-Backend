@@ -36,6 +36,8 @@ public class ServiceAvailability implements IServiceAvailability {
     public Availability updateAvailability(Integer id, Availability updatedAvailability) {
         Availability existingAvailability = availabilityRepository.findById(id).orElse(null);
         if (existingAvailability != null) {
+            existingAvailability.setStart(updatedAvailability.getStart());
+            existingAvailability.setEnd(updatedAvailability.getEnd());
             return availabilityRepository.save(existingAvailability);
         }
         return null;
