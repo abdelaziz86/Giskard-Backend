@@ -1,5 +1,6 @@
 package com.example.newproject.controller;
 
+import com.example.newproject.entities.Availability;
 import com.example.newproject.entities.Reservation;
 import com.example.newproject.services.IServiceReservation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
+@CrossOrigin(origins = "http://127.0.0.1:5173")
 @RestController
 @RequestMapping("/reservations")
 public class ReservationController {
@@ -37,5 +39,16 @@ public class ReservationController {
     public ResponseEntity<List<Reservation>> getAllReservations() {
         List<Reservation> reservations = reservationService.listReservations();
         return new ResponseEntity<>(reservations, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Reservation> getReservationById(@PathVariable Integer id) {
+        Reservation reservation = reservationService.getReservationById(id);
+        if (reservation != null) {
+            return new ResponseEntity<>(reservation, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

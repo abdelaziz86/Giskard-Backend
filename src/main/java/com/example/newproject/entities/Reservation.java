@@ -31,4 +31,7 @@ public class Reservation {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "note")
+    private String note;
+
 }

@@ -47,4 +47,9 @@ public class ServiceReservation implements IServiceReservation {
         // Implement the logic to retrieve and return a list of all reservations
         return reservationRepository.findAll();
     }
+
+    @Override
+    public Reservation getReservationById(Integer id) {
+        return reservationRepository.findById(id).orElse(null);
+    }
 }

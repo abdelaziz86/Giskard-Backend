@@ -8,9 +8,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import java.time.LocalDateTime;
 import java.util.List;
-
+@CrossOrigin(origins = "http://127.0.0.1:5173")
 @RestController
 @RequestMapping("/availability")
 public class AvailabilityController {
